@@ -33,29 +33,40 @@
     <li data-target="#myCarousel" data-slide-to="1"></li>
     <li data-target="#myCarousel" data-slide-to="2"></li>
   </ul>
-  
+
   <!-- The slideshow -->
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="img/11.jpg" alt="Los Angeles" width="750" height="1000"  class = "carousel-main">
-      <img src="img/11.jpg" alt="Los Angeles" width="300" height="320"  class = "carousel-child float-right" style = "clear:left;">
-       <img src="img/11.jpg" alt="Los Angeles" width="300" height="320"  class = "carousel-child float-right">
-       <img src="img/11.jpg" alt="Los Angeles" width="300" height="320"  class = "carousel-child float-right">
-    </div>
-    <div class="carousel-item">
-      <img src="img/12.jpg" alt="Chicago" width="750" height="1000" class = "carousel-main">
-      <img src="img/12.jpg" alt="Los Angeles" width="300" height="320"  class = "carousel-child float-right" style = "clear:right;">
-       <img src="img/12.jpg" alt="Los Angeles" width="300" height="320"  class = "carousel-child float-right">
-       <img src="img/12.jpg" alt="Los Angeles" width="300" height="320"  class = "carousel-child float-right">
-    </div>
-    <div class="carousel-item">
-      <img src="img/4.jpg" alt="New York" width="750" height="1000" class = "carousel-main">
-      <img src="img/4.jpg" alt="Los Angeles" width="300" height="320"  class = "carousel-child float-right" style = "clear:both;">
-       <img src="img/4.jpg" alt="Los Angeles" width="300" height="320"  class = "carousel-child float-right">
-       <img src="img/4.jpg" alt="Los Angeles" width="300" height="320"  class = "carousel-child float-right">
+      <div style="float:left;width:750px;height:1000px;color:red">
+        <img id = "1M" src="img/2.jpg" alt="Los Angeles" width="750" height="980"  class = "carousel-main float-right">
+      </div>
+    <div style="float:right;width:305px;height:980px;color:red">
+      <img id = "1Ma" onmouseover="gotobig(this)" onmouseout="img_org(this)" src="img/4.jpg" alt="Los Angeles" width="300" height="320"  class = "carousel-child float-right" style = "clear:left;">
+      <img id = "1Mb" onmouseover="gotobig(this)" onmouseout="img_org(this)" src="img/5.jpg" alt="Los Angeles" width="300" height="320"  class = "carousel-child float-right">
+      <img id = "1Mc" onmouseover="gotobig(this)" onmouseout="img_org(this)" src="img/7.jpg" alt="Los Angeles" width="300" height="320"  class = "carousel-child float-right">
     </div>
   </div>
-  
+    <div class="carousel-item">
+      <div style="float:left;width:750px;height:1000px;color:red">
+          <img id = "2M" src="img/8.jpg" alt="Los Angeles" width="750" height="980"  class = "carousel-main float-right">
+        </div>
+      <div style="float:right;width:305px;height:980px;color:red">
+        <img id = "2Ma" onmouseover="gotobig(this)" onmouseout="img_org(this)" src="img/9.jpg" alt="Los Angeles" width="300" height="320"  class = "carousel-child float-right" style = "clear:left;">
+        <img id = "2Mb" onmouseover="gotobig(this)" onmouseout="img_org(this)" src="img/11.jpg" alt="Los Angeles" width="300" height="320"  class = "carousel-child float-right">
+        <img id = "2Mc" onmouseover="gotobig(this)" onmouseout="img_org(this)" src="img/12.jpg" alt="Los Angeles" width="300" height="320"  class = "carousel-child float-right">
+      </div>
+      </div>
+    <div class="carousel-item ">
+      <div style="float:left;width:750px;height:1000px;color:red">
+        <img id = "3M" src="img/11.jpg" alt="Los Angeles" width="750" height="980"  class = "carousel-main float-right">
+      </div>
+    <div style="float:right;width:305px;height:980px;color:red">
+      <img id = "3Ma" onmouseover="gotobig(this)" onmouseout="img_org(this)" src="img/7.jpg" alt="Los Angeles" width="300" height="320"  class = "carousel-child float-right" style = "clear:left;">
+      <img id = "3Mb" onmouseover="gotobig(this)" onmouseout="img_org(this)" src="img/8.jpg" alt="Los Angeles" width="300" height="320"  class = "carousel-child float-right">
+      <img id = "3Mc" onmouseover="gotobig(this)" onmouseout="img_org(this)" src="img/2.jpg" alt="Los Angeles" width="300" height="320"  class = "carousel-child float-right">
+    </div>
+    </div>
+
   <!-- Left and right controls -->
   <a class="carousel-control-prev" href="#myCarousel" data-slide="prev">
     <span class="carousel-control-prev-icon"></span>
@@ -66,8 +77,50 @@
 </div>
 
 </div>
-  
+<script>
+var bigimg="";
+function gotobig(obj)
+{
+  var perid = obj.id;
+  var perid = perid.slice(0, 2);
+  //alert("this is test"+perid);
+
+
+  var myCollection = document.getElementById(perid);
+//  alert(document.getElementById(perid).src);
+  bigimg=myCollection.src;
+  myCollection.src=obj.src;
+
+
+}
+
+  function img_increase(obj)
+  {
+  //  alert("this is test"+obj.src);
+    obj.width=750;
+    obj.width=980;
+    obj.left=0;
+    delay(1);
+    obj.width=300;
+    obj.width=320;
+    obj.right=0;
+
+
+  }
+  function img_org(obj)
+  {
+    var perid = obj.id;
+    var perid = perid.slice(0, 2);
+    //alert(bigimg);
+    var myCollection = document.getElementById(perid);
+    myCollection.src = bigimg;
+/*
+    obj.width=300;
+    obj.width=320;
+    obj.right=0;
+*/
+  }
+</script>
 
 </body>
 </html>
-
